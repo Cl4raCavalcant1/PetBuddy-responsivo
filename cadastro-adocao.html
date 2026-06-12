@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro para Adoção - PetBuddy</title>
+<link rel="stylesheet" href="./stylepetlar.css">
+<style>
+body{font-family:'Inter',sans-serif;background:#f5f7fb;padding:40px}
+.container{max-width:800px;margin:auto;background:var(--card);padding:30px;border-radius:12px}
+input,select,textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ddd}
+button{background:#f7931e;color:#fff;border:none;padding:12px 20px;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Cadastro para Adoção de Pet</h1>
+<form id="adocaoForm">
+<input type="text" id="nomeAdotante" placeholder="Nome Completo" required>
+<input type="email" id="emailAdotante" placeholder="E-mail" required>
+<input type="tel" id="telefoneAdotante" placeholder="Telefone" required>
+<input type="text" id="cidadeAdotante" placeholder="Cidade" required>
+<select id="petDesejado" required>
+<option value="">Tipo de Pet Desejado</option>
+<option>Cachorro</option>
+<option>Gato</option>
+<option>Outros</option>
+</select>
+<textarea id="sobreAdotante" placeholder="Fale um pouco sobre você"></textarea>
+<button type="button" onclick="enviarAdocao()">Enviar Solicitação</button>
+</form>
+</div>
+
+<script>
+function enviarAdocao() {
+    const nome = document.getElementById('nomeAdotante').value;
+    const email = document.getElementById('emailAdotante').value;
+    const pet = document.getElementById('petDesejado').value;
+    
+    if(!nome || !email || !pet) {
+        alert('Por favor, preencha todos os campos obrigatórios!');
+        return;
+    }
+    
+    alert('Solicitação de adoção enviada com sucesso! Entraremos em contato em breve.');
+    window.location.href = 'homepet.html';
+}
+</script>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+<script>
+function toggleDarkMode(){
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+}
+if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+</script>
+</body>
+</html>

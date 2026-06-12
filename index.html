@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetBuddy | Início</title>
+  <link rel="stylesheet" href="stylehome.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--bg:#ffffff;--text:#222;--card:#f5f5f5}
+body.dark{--bg:#121212;--text:#f1f1f1;--card:#1e1e1e}
+body{background:var(--bg)!important;color:var(--text)!important;transition:.3s}
+.card,.pet-card,.produto,.plano{background:var(--card)!important;transition:.3s ease}
+.plano:hover,.card:hover,.pet-card:hover,.produto:hover{transform:translateY(-6px)}
+.dark-toggle{position:fixed;top:15px;right:15px;z-index:9999;padding:10px 14px;border-radius:20px;cursor:pointer}
+.hero-simple{padding:60px 20px;text-align:center}
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="container topbar-content">
+        <p>A Saúde do seu Animalzinho é na PetMed</p>
+        <a href="#" class="saiba-mais">Saber mais</a>
+      </div>
+    </div>
+  
+    <div class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo-link">
+          <img src="../assets/Logo Principal.png" alt="Logo PetBuddy" class="logo">
+        </a>
+  
+        <nav class="menu">
+          <a href="index.html" class="active">Início</a>
+          
+          <a href="../petmed/../petmed/petmed.html">PetMed</a>
+          <a href="../petlar/homepet.html">PetLar</a>
+       
+        </nav>
+  
+        <button class="btn-login" onclick="window.location.href='../login/login.html'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Entrar/Cadastrar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="banner container">
+      <button class="seta left" id="prevBanner">❮</button>
+      <div class="banner-box">
+        <img src="../assets/banner.png" alt="Tudo para o seu Pet" class="banner-img">
+      </div>
+      <button class="seta right" id="nextBanner">❯</button>
+      <div class="dots">
+        <span class="active-dot"></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <section class="ofertas container">
+      <div class="section-header">
+        <h2>Ofertas do dia</h2>
+      </div>
+      <div class="carousel-container">
+        <button class="seta left inline-arrow" id="prevOffer">❮</button>
+        <div class="cards" id="offerCards">
+          
+          <article class="card">
+            <div class="card-img-wrapper">
+              <span class="tag">20%<br>OFF</span>
+              <img src="../assets/areia.png" alt="Areia Higiênica Meau">
+            </div>
+            <p class="produto-nome">Areia Higiênica Meau Biodegradável<br>Grãos finos para Gatos - 4kg</p>
+            <span class="old">R$ 68,90</span>
+            <strong class="price">R$ 55,12</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+          <article class="card">
+            <div class="card-img-wrapper">
+              <span class="tag">25%<br>OFF</span>
+              <img src="../assets/ração.png" alt="Ração Suprema">
+            </div>
+            <p class="produto-nome">Ração Seca Suprema Sabor Carne<br>para Cães Adultos - 20kg</p>
+            <span class="old">R$ 194,00</span>
+            <strong class="price">R$ 155,20</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+          <article class="card">
+            <div class="card-img-wrapper">
+              <span class="tag">05%<br>OFF</span>
+              <img src="../assets/churu.png" alt="Churu">
+            </div>
+            <p class="produto-nome">Petisco Churu Atum com Salmão -<br>56 g</p>
+            <span class="old">R$ 30,00</span>
+            <strong class="price">R$ 28,50</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+        </div>
+        <button class="seta right inline-arrow" id="nextOffer">❯</button>
+      </div>
+    </section>
+
+    <section class="mini container">
+      <img src="../assets/banner pequeno 1.png" alt="Descontos Todos os Dias" class="mini-banner">
+      <img src="../assets/banner pequeno 2.png" alt="Banho & Tosa" class="mini-banner">
+      <img src="../assets/banner pequeno 3.png" alt="Os Melhores Petiscos" class="mini-banner">
+    </section>
+
+    <section class="busca-section container">
+      <form class="busca-form">
+        <input type="search" placeholder="O que Você Precisa Para O Seu Pet?">
+        <button type="submit" class="btn-search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </form>
+    </section>
+
+    <section class="shop-by-pet container">
+      <div class="section-header-row">
+        <h2>Qual pet você procura?</h2>
+        <div class="nav-arrows-dark">
+          <button class="btn-dark" id="prevPet">❮</button>
+          <button class="btn-dark" id="nextPet">❯</button>
+        </div>
+      </div>
+      <div class="pet-circles" id="petCarousel">
+        <div class="pet-item"><div class="circle"><img src="../assets/GatoCateg.png" alt="Gatos"></div><span>Gatos</span></div>
+        <div class="pet-item"><div class="circle"><img src="../assets/HamsterCateg.png" alt="Roedor"></div><span>Roedor</span></div>
+        <div class="pet-item"><div class="circle"><img src="../assets/CachorroCateg.png" alt="Cachorro"></div><span>Cachorro</span></div>
+        <div class="pet-item"><div class="circle"><img src="../assets/PassaroCateg.png" alt="Pássaros"></div><span>Pássaros</span></div>
+        <div class="pet-item"><div class="circle"><img src="../assets/CoelhoCateg.png" alt="Coelho"></div><span>Coelho</span></div>
+        <div class="pet-item"><div class="circle"><img src="../assets/PeixeCateg.png" alt="Peixe"></div><span>Peixe</span></div>
+      </div>
+      <hr class="divider">
+    </section>
+
+    <section class="catalogo container">
+      <div class="section-header">
+        <h2>Mais Vendidos</h2>
+      </div>
+
+      <div class="catalogo-layout">
+        <aside class="filtro-sidebar">
+          <div class="filtro-block">
+            <h3>Filtrar por Categorias</h3>
+            <label class="check-item"><input type="checkbox" checked> Cães <span class="count"></span></label>
+            <label class="check-item"><input type="checkbox"> Gatos <span class="count"></span></label>
+            <label class="check-item"><input type="checkbox"> Pássaros <span class="count"></span></label>
+            <label class="check-item"><input type="checkbox"> Peixes <span class="count"></span></label>
+            <label class="check-item"><input type="checkbox"> Roedores <span class="count"></span></label>
+            <label class="check-item"><input type="checkbox"> Répteis <span class="count"></span></label>
+          </div>
+
+          <div class="filtro-block">
+            <h3>Filtrar por preço</h3>
+            <p class="price-label">Preço: R$0 — R$500+</p>
+            <input type="range" min="0" max="500" value="250" class="slider-preço">
+          </div>
+
+          <div class="filtro-block">
+            <h3>Filtrar por Marcas</h3>
+            <label class="check-item"><input type="checkbox"> Royal Canin <span class="count"></span></label>
+            <label class="check-item"><input type="checkbox"> Premier <span class="count"></span></label>
+            <label class="check-item"><input type="checkbox"> Whiskas <span class="count"></span></label>
+          </div>
+
+          <button class="btn-filtrar-aside">Filtrar</button>
+        </aside>
+
+        <div class="produtos-grid">
+          
+          <article class="card-prod">
+            <div class="fav-icon">♡</div>
+            <div class="card-img-wrapper"><img src="../assets/osso.png" alt="Osso"></div>
+            <p class="produto-nome">Petisco Mordedor Umidificador Natural Cão para Cães</p>
+            <strong class="price">R$ 12,40</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+          <article class="card-prod">
+            <div class="fav-icon">♡</div>
+            <div class="card-img-wrapper"><img src="../assets/ração gato.png" alt="Ração Natural"></div>
+            <p class="produto-nome">Ração Seca Fórmula Natural Fresh Meat Cães Adultos Raças Mini e Pequenas - 2,5 Kg</p>
+            <strong class="price">R$ 135,80</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+          <article class="card-prod">
+            <div class="fav-icon">♡</div>
+            <div class="card-img-wrapper"><img src="../assets/corda Brinquedo.png" alt="Corda"></div>
+            <p class="produto-nome">Brinquedo Mordedor Corda Pneu Nó De Algodão Natural Odonto para Cão E Pet</p>
+            <strong class="price">R$ 27,30</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+          <article class="card-prod">
+            <div class="fav-icon">♡</div>
+            <div class="card-img-wrapper"><img src="../assets/casinha2.png" alt="Cama Retangular"></div>
+            <p class="produto-nome">Cama para Cachorro Retangular Caramelo - Tam. M</p>
+            <strong class="price">R$ 182,80</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+          <article class="card-prod">
+            <div class="fav-icon">♡</div>
+            <div class="card-img-wrapper"><img src="../assets/casinha3.png" alt="Toca"></div>
+            <p class="produto-nome">Casinha Pet Toca de Cachorro e Gato Iglu Marrom - Show Casa</p>
+            <strong class="price">R$ 410,00</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+          <article class="card-prod">
+            <div class="fav-icon">♡</div>
+            <div class="card-img-wrapper"><img src="../assets/casinha4.png" alt="Toca Cinza"></div>
+            <p class="produto-nome">Cama Para Cães e Gatos Toca 2 Em 1 Lã Cinza</p>
+            <strong class="price">R$ 237,90</strong>
+            <button class="btn-add">Adicionar</button>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="pagination-container">
+        <button class="page-btn">❮</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <span class="page-dots">...</span>
+        <button class="page-btn">20</button>
+        <button class="page-btn">❯</button>
+      </div>
+
+      <div class="btn-vermais-container">
+        <button class="btn-vermais">Ver Mais</button>
+      </div>
+    </section>
+
+    <section class="petmed-banner container">
+      <img src="../assets/banner 2.png" alt="PetMed" class="full-width-img">
+    </section>
+
+    <section class="produtos-marca container">
+      <div class="section-header pb-header">
+        <h2>Produtos PetBuddy</h2>
+        <p class="ong-text">Ajude uma Ong Comprando aqui!</p>
+      </div>
+      
+      <div class="grid-4">
+        <article class="card-prod pb-card">
+          <div class="img-gray-bg"><img src="../assets/caneca.png" alt="Caneca"></div>
+          <p class="produto-nome">Caneca PetBuddy 250ml</p>
+          <strong class="price">R$ 25,00</strong>
+          <button class="btn-add">Adicionar</button>
+        </article>
+
+        <article class="card-prod pb-card">
+          <div class="img-gray-bg"><img src="../assets/caneta esfero.png" alt="Caneta"></div>
+          <p class="produto-nome">Caneta Esferográfica</p>
+          <strong class="price">R$ 12,00</strong>
+          <button class="btn-add">Adicionar</button>
+        </article>
+
+        <article class="card-prod pb-card">
+          <div class="img-gray-bg"><img src="../assets/coleira.png" alt="Coleira"></div>
+          <p class="produto-nome">Coleira para Gatos e Cães com Guizo</p>
+          <strong class="price">R$ 20,00</strong>
+          <button class="btn-add">Adicionar</button>
+        </article>
+
+        <article class="card-prod pb-card">
+          <div class="img-gray-bg"><img src="../assets/pote de comida e agua.png" alt="Pote"></div>
+          <p class="produto-nome">Comedouro Água e Ração para Pets</p>
+          <strong class="price">R$ 45,00</strong>
+          <button class="btn-add">Adicionar</button>
+        </article>
+      </div>
+
+      <div class="btn-vermais-container" style="margin-top: 30px;">
+        <button class="btn-vermais">Ver Mais</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-layout">
+      <div class="footer-columns">
+        <div class="col">
+          <a href="#">Contato</a>
+          <a href="#">Sobre Nós</a>
+          <a href="#">Endereço</a>
+        </div>
+        <div class="col">
+          <a href="#">PetMed</a>
+          <a href="#">PetLar</a>
+          <a href="#">PetBuddy</a>
+        </div>
+        <div class="col">
+          <a href="#">Nossas Ong's</a>
+          <a href="#">Clínicas Parceiras</a>
+          <a href="#">Nosso Objetivo</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-logo-box">
+       <img src="../assets/Logo Principal.png" alt="Logo PetBuddy Rodapé" class="footer-logo">
+    </div>
+  </footer>
+
+  <script src="../cart.js"></script>
+  <script>
+    // Banner carousel
+    let bannerIndex = 0;
+    const banners = ['../assets/banner.png', '../assets/banner2.png', '../assets/banner3.png'];
+    const bannerImg = document.querySelector('.banner-img');
+    
+    document.getElementById('nextBanner')?.addEventListener('click', () => {
+      bannerIndex = (bannerIndex + 1) % banners.length;
+      if(bannerImg) bannerImg.src = banners[bannerIndex];
+      updateDots(bannerIndex);
+    });
+    
+    document.getElementById('prevBanner')?.addEventListener('click', () => {
+      bannerIndex = (bannerIndex - 1 + banners.length) % banners.length;
+      if(bannerImg) bannerImg.src = banners[bannerIndex];
+      updateDots(bannerIndex);
+    });
+    
+    function updateDots(index) {
+      document.querySelectorAll('.dots span').forEach((dot, i) => {
+        dot.classList.toggle('active-dot', i === index);
+      });
+    }
+
+    // Carousel ofertas
+    const offerCards = document.getElementById('offerCards');
+    document.getElementById('nextOffer')?.addEventListener('click', () => offerCards.scrollBy({ left: 350, behavior: 'smooth' }));
+    document.getElementById('prevOffer')?.addEventListener('click', () => offerCards.scrollBy({ left: -350, behavior: 'smooth' }));
+
+    // Carousel pets
+    const petCarousel = document.getElementById('petCarousel');
+    document.getElementById('nextPet')?.addEventListener('click', () => {
+      const itemWidth = petCarousel.querySelector('.pet-item')?.offsetWidth + 20 || 120;
+      petCarousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
+    });
+    document.getElementById('prevPet')?.addEventListener('click', () => {
+      const itemWidth = petCarousel.querySelector('.pet-item')?.offsetWidth + 20 || 120;
+      petCarousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+    });
+
+    // Adicionar ao carrinho
+    document.querySelectorAll('.btn-add').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.card, .card-prod');
+        const nome = card.querySelector('.produto-nome')?.innerText || 'Produto';
+        const preco = card.querySelector('.price')?.innerText || 'R$ 0';
+        addToCart(nome, preco);
+      });
+    });
+
+    // Paginação
+    document.querySelectorAll('.page-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if(this.textContent === '❮' || this.textContent === '❯') return;
+        document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+  <script>
+    function toggleDarkMode(){
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+    if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+  </script>
+  <!-- Botão Flutuante do WhatsApp -->
+<a href="https://wa.me/5581995782207?text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+os+planos+da+PetBuddy." 
+   class="whatsapp-btn" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Fale conosco pelo WhatsApp">
+    <!-- Ícone SVG do WhatsApp (dispensa uso de fontes externas como FontAwesome) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="32" height="32" fill="currentColor">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+</a>
+</body>
+</html>

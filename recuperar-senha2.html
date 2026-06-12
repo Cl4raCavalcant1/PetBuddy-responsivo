@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetBuddy | Escolha sua Nova Senha</title>
+  <link rel="stylesheet" href="./stylelogin.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--bg:#ffffff;--text:#222;--card:#f5f5f5}
+body.dark{--bg:#121212;--text:#f1f1f1;--card:#1e1e1e}
+body{background:var(--bg)!important;color:var(--text)!important;transition:.3s}
+.card,.pet-card,.produto,.plano{background:var(--card)!important;transition:.3s ease}
+.plano:hover,.card:hover,.pet-card:hover,.produto:hover{transform:translateY(-6px)}
+.dark-toggle{position:fixed;top:15px;right:15px;z-index:9999;padding:10px 14px;border-radius:20px;cursor:pointer}
+.hero-simple{padding:60px 20px;text-align:center}
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="container topbar-content">
+        <p>A Saúde do seu Animalzinho é na PetMed</p>
+        <a href="#" class="saiba-mais">Saber mais</a>
+      </div>
+    </div>
+  
+    <div class="navbar">
+      <div class="container nav-container">
+        <a href="../home/index.html" class="logo-link">
+          <img src="../assets/Logo Principal.png" alt="Logo PetBuddy" class="logo">
+        </a>
+  
+        <nav class="menu">
+          <a href="../home/index.html">Início</a>
+          <a href="#">Promoções</a>
+          <a href="../petmed/../petmed/petmed.html">PetMed</a>
+          <a href="../petlar/homepet.html">PetLar</a>
+          <a href="#">Contato</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="cadastro-wrapper container">
+    <div class="cadastro-box">
+        
+        <div class="login-img-area">
+            <img src="../assets/RecuperarSenha.png" alt="Pets PetBuddy" class="pet-recuperar-senha-img">
+        </div>
+
+        <div class="cadastro-form-area">
+            <div class="cadastro-card card-recuperar">
+                <h2>Escolha sua Nova Senha</h2>
+                
+                <form>
+                    <div class="form-group">
+                        <label>Digite a sua Nova Senha!</label>
+                        <input type="password" id="novaSenha" placeholder="Insira sua Nova Senha aqui." required>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label>Confirme a sua Nova Senha!</label>
+                        <input type="password" id="confirmNovaSenha" placeholder="Confirme a sua Nova Senha aqui." required>
+                    </div>
+
+                    <div class="btn-create-container" style="margin-top: 40px;">
+                        <button type="button" class="btn-create" onclick="alterarSenha()">Alterar Senha</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+  <script>
+      function alterarSenha() {
+          const novaSenha = document.getElementById('novaSenha').value;
+          const confirmSenha = document.getElementById('confirmNovaSenha').value;
+          
+          if(!novaSenha || !confirmSenha) {
+              alert('Por favor, preencha todos os campos!');
+              return;
+          }
+          
+          if(novaSenha !== confirmSenha) {
+              alert('As senhas não coincidem!');
+              return;
+          }
+          
+          if(novaSenha.length < 6) {
+              alert('A senha deve ter no mínimo 6 caracteres!');
+              return;
+          }
+          
+          const userData = JSON.parse(localStorage.getItem('petbuddy_user') || '{}');
+          userData.senha = novaSenha;
+          localStorage.setItem('petbuddy_user', JSON.stringify(userData));
+          
+          alert('Senha alterada com sucesso!');
+          window.location.href = 'login.html';
+      }
+  </script>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+  <script>
+      function toggleDarkMode(){
+          document.body.classList.toggle('dark');
+          localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      }
+      if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+  </script>
+</body>
+</html>

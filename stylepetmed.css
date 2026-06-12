@@ -1,0 +1,586 @@
+/* ===== RESET E VARIÁVEIS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --card: #f5f5f5;
+  --primary: #f7931e;
+  --primary-hover: #e07c0c;
+  --border: #eaeaea;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --card: #1e1e1e;
+  --border: #2c2c2c;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== TOPBAR ===== */
+.top-bar {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-clique {
+  background: white;
+  color: var(--primary);
+  padding: 4px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.btn-clique:hover {
+  transform: scale(1.02);
+}
+
+.top-bar small {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 15px 0;
+  margin-bottom: 40px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.logo {
+  height: 45px;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.menu a.active,
+.menu a:hover {
+  color: var(--primary);
+}
+
+.btn-login {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* ===== CATEGORIAS ===== */
+.categorias {
+  margin-bottom: 60px;
+}
+
+.categorias h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.categorias-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.categoria {
+  text-align: center;
+  cursor: pointer;
+  flex: 0 0 100px;
+  transition: transform 0.2s;
+}
+
+.categoria:hover {
+  transform: translateY(-5px);
+}
+
+.categoria img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--primary);
+  padding: 5px;
+}
+
+.categoria span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* ===== PLANOS ===== */
+.planos {
+  margin-bottom: 70px;
+  scroll-margin-top: 20px;
+}
+
+.planos-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.planos-header h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.cards-planos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.plano {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 30px 25px;
+  width: 320px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.plano:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.plano.destaque {
+  border: 2px solid var(--primary);
+  transform: scale(1.02);
+}
+
+.plano h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+body.dark .descricao {
+  color: #aaa;
+}
+
+.preco {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.preco span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.preco-anual {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.plano ul {
+  list-style: none;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.plano ul li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.plano ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.btn-plano {
+  background: var(--primary);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-plano:hover {
+  background: var(--primary-hover);
+}
+
+/* ===== CLÍNICAS (CARROSSEL RESPONSIVO) ===== */
+.clinicas {
+  margin-bottom: 70px;
+}
+
+.clinicas h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.clinicas-carousel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.clinicas-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 25px;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  flex: 1;
+}
+
+.clinicas-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.clinicas-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.clinica-card {
+  flex: 0 0 280px;
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.clinica-card:hover {
+  transform: translateY(-5px);
+}
+
+.clinica-img {
+  height: 160px;
+  overflow: hidden;
+}
+
+.clinica-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.clinica-card:hover .clinica-img img {
+  transform: scale(1.05);
+}
+
+.clinica-info {
+  padding: 15px;
+}
+
+.clinica-info h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.clinica-info p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+body.dark .clinica-info p {
+  color: #aaa;
+}
+
+.telefone {
+  font-weight: 600;
+  color: var(--primary) !important;
+}
+
+.seta {
+  background: var(--primary);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+  flex-shrink: 0;
+  transition: 0.2s;
+}
+
+.seta:hover {
+  background: var(--primary-hover);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--primary);
+  padding: 40px 20px 30px;
+  margin-top: 60px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-bottom: 30px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-logo {
+  text-align: center;
+}
+
+.footer-logo img {
+  height: 45px;
+  filter: brightness(0) invert(1);
+}
+
+/* ===== DARK MODE TOGGLE ===== */
+.dark-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 16px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: 0.2s;
+}
+
+.dark-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIVIDADE COMPLETA ===== */
+@media (max-width: 992px) {
+  .cards-planos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .plano {
+    width: 90%;
+    max-width: 400px;
+  }
+  .plano.destaque {
+    transform: scale(1);
+  }
+  .categorias-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  .categoria img {
+    width: 70px;
+    height: 70px;
+  }
+  .categoria {
+    flex: 0 0 70px;
+  }
+  .clinica-card {
+    flex: 0 0 260px;
+  }
+  .footer-links {
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .top-bar .container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .planos-header h2 {
+    font-size: 28px;
+  }
+  .clinicas h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoria img {
+    width: 60px;
+    height: 60px;
+  }
+  .categoria span {
+    font-size: 12px;
+  }
+  .clinica-card {
+    flex: 0 0 240px;
+  }
+  .seta {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .plano {
+    padding: 20px;
+  }
+  .preco {
+    font-size: 28px;
+  }
+}
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #006485; /* Alinhado com a paleta do PetBuddy */
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Garante que fique acima de carrosséis e do menu */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efeito de passar o mouse */
+.whatsapp-btn:hover {
+    background-color: #25d366; /* Muda para o verde clássico do WhatsApp no hover */
+    transform: scale(1.1);
+}
+
+/* Animação suave de pulso para chamar atenção sutilmente */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 100, 133, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 100, 133, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 100, 133, 0); }
+}
+
+.whatsapp-btn {
+    animation: pulse 2s infinite;
+}
+
+/* ===== RESPONSIVIDADE MOBILE (iOS e Android) ===== */
+@media (max-width: 768px){
+  *{box-sizing:border-box;}
+  body{overflow-x:hidden;}
+  .container,.content,.wrapper,.main{width:100%!important;max-width:100%!important;padding-left:12px!important;padding-right:12px!important;}
+  header,nav,section,footer{width:100%!important;}
+  img{max-width:100%!important;height:auto!important;}
+  .grid,.cards,.card-container,.products,.pets,.pet-grid,.services{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:16px!important;
+  }
+  table{display:block;overflow-x:auto;}
+  input,select,textarea,button{
+      width:100%!important;
+      max-width:100%!important;
+      font-size:16px!important;
+  }
+  h1{font-size:2rem!important;}
+  h2{font-size:1.6rem!important;}
+  h3{font-size:1.3rem!important;}
+}
+
+@media (max-width:480px){
+  body{font-size:14px!important;}
+  h1{font-size:1.7rem!important;}
+  h2{font-size:1.4rem!important;}
+  h3{font-size:1.1rem!important;}
+}

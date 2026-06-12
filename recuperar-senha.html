@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetBuddy | Recuperar Senha</title>
+  <link rel="stylesheet" href="./stylelogin.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--bg:#ffffff;--text:#222;--card:#f5f5f5}
+body.dark{--bg:#121212;--text:#f1f1f1;--card:#1e1e1e}
+body{background:var(--bg)!important;color:var(--text)!important;transition:.3s}
+.card,.pet-card,.produto,.plano{background:var(--card)!important;transition:.3s ease}
+.plano:hover,.card:hover,.pet-card:hover,.produto:hover{transform:translateY(-6px)}
+.dark-toggle{position:fixed;top:15px;right:15px;z-index:9999;padding:10px 14px;border-radius:20px;cursor:pointer}
+.hero-simple{padding:60px 20px;text-align:center}
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="container topbar-content">
+        <p>A Saúde do seu Animalzinho é na PetMed</p>
+        <a href="#" class="saiba-mais">Saber mais</a>
+      </div>
+    </div>
+  
+    <div class="navbar">
+      <div class="container nav-container">
+        <a href="../home/index.html" class="logo-link">
+          <img src="../assets/Logo Principal.png" alt="Logo PetBuddy" class="logo">
+        </a>
+  
+        <nav class="menu">
+          <a href="../home/index.html">Início</a>
+          <a href="#">Promoções</a>
+          <a href="../petmed/../petmed/petmed.html">PetMed</a>
+          <a href="../petlar/homepet.html">PetLar</a>
+          <a href="#">Contato</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="cadastro-wrapper container">
+    <div class="cadastro-box">
+        
+        <div class="login-img-area">
+            <img src="../assets/RecuperarSenha.png" alt="Pets PetBuddy" class="pet-recuperar-senha-img">
+        </div>
+
+        <div class="cadastro-form-area">
+            <div class="cadastro-card card-recuperar">
+                <h2>Recuperar Senha!</h2>
+                
+                <form>
+                    <div class="form-group">
+                        <label>Digite o seu E-mail</label>
+                        <input type="email" id="emailRec" placeholder="Insira seu E-mail aqui." required>
+                    </div>
+
+                    <p class="info-txt">Será Enviado um Link para o seu E-mail para Recuperar a Sua Senha!</p>
+
+                    <div class="btn-create-container">
+                        <button type="button" class="btn-create" onclick="enviarLinkEmail()">Enviar Link</button>
+                    </div>
+
+                    <p class="reenviar-txt">Não recebeu? <a href="#" onclick="reenviarCodigoEmail()">Reenviar Código para E-mail</a></p>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+  <script>
+      function enviarLinkEmail() {
+          const email = document.getElementById('emailRec').value;
+          if(!email) {
+              alert('Por favor, digite seu e-mail!');
+              return;
+          }
+          alert('Link de recuperação enviado para o e-mail ' + email + ' (Simulação)');
+          window.location.href = 'recuperar-senha2.html';
+      }
+      
+      function reenviarCodigoEmail() {
+          alert('Código reenviado para o seu e-mail! (Simulação)');
+      }
+  </script>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+  <script>
+      function toggleDarkMode(){
+          document.body.classList.toggle('dark');
+          localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      }
+      if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+  </script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+/* ================= VARIABLES & RESET ================= */
+:root {
+    --primary: #f7931e;
+    --primary-hover: #e08012;
+    --text-dark: #333333;
+    --text-gray: #666666;
+    --bg-main: #ffffff;
+    --white: #ffffff;
+    --radius: 12px;
+    --shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background-color: var(--bg-main); color: var(--text-dark); }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; outline: none; background: transparent; font-family: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ================= HEADER ================= */
+.topbar { background-color: var(--primary); color: var(--white); font-size: 12px; padding: 8px 0; font-weight: 600; text-align: center; }
+.topbar-content { display: flex; justify-content: center; align-items: center; gap: 15px; }
+.saiba-mais { background: var(--white); color: var(--primary); padding: 3px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+
+.navbar { background: var(--white); padding: 15px 0; border-bottom: 2px solid #eaeaea; margin-bottom: 40px; }
+
+/* Navbar perfeitamente centralizada em bloco */
+.nav-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 100px; /* Distância ideal entre a Logo e o Menu */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo { height: 45px; }
+
+/* Menu com palavras mais separadas */
+.menu { 
+    display: flex; 
+    gap: 50px; /* Aumentado para não ficar espremido */
+}
+
+.menu a { font-weight: 600; font-size: 16px; color: var(--text-dark); }
+.menu a.active, .menu a:hover { color: var(--primary); }
+
+/* ================= TELA DE CADASTRO ================= */
+.cadastro-wrapper {
+    padding: 30px 20px 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro-box {
+    background-color: var(--primary);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    min-height: 600px;
+}
+
+/* Área da Imagem Limpa (Sem bolinhas CSS) ajustada para colar na base */
+.cadastro-img-area {
+    flex: 1;
+    display: flex;
+    align-items: flex-end; /* Empurra o conteúdo para o chão da div */
+    justify-content: center;
+    height: 100%;
+}
+
+.pet-cadastro-img {
+    width: 100%;
+    max-width: 580px; 
+    object-fit: contain;
+    /* Ajuste fino para encaixar a imagem que já tem fundo na base da div */
+    margin-bottom: -50px; 
+    margin-left: -30px;
+    position: relative;
+    z-index: 2;
+}
+
+.cadastro-form-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 40px 60px 40px 0;
+}
+
+.cadastro-card {
+    background: var(--white);
+    padding: 40px 45px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.cadastro-card h2 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.form-group { margin-bottom: 15px; }
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-gray);
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    background-color: #e5e7eb;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.form-group input::placeholder { color: #9ca3af; }
+
+.btn-create-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btn-create {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 12px 50px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-create:hover { background: var(--primary-hover); }
+
+.login-txt {
+    text-align: center;
+    font-size: 10px;
+    color: #999;
+    margin-top: 15px;
+}
+
+.login-txt a { color: var(--primary); font-weight: 600; }
+
+.ou-divider {
+    text-align: center;
+    font-size: 10px;
+    color: #ccc;
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+.social-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--white);
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    border-radius: 20px;
+    font-size: 8px;
+    color: var(--text-gray);
+    font-weight: 600;
+    flex: 1;
+    cursor: pointer;
+}
+
+.social-btn:hover { background: #f4f5f7; }
+
+@media (max-width: 900px) {
+    .cadastro-box { flex-direction: column; padding: 20px; }
+    .cadastro-form-area { padding: 20px; justify-content: center; }
+    .cadastro-card { max-width: 100%; }
+}
+
+/* ==========================================================================
+    TELA DE CADASTRO 2.2 
+   ========================================================================== */
+
+/* Organiza os campos lado a lado */
+.form-row {
+    display: flex;
+    gap: 15px; /* Espaço entre os inputs da mesma linha */
+    margin-bottom: 15px;
+}
+
+/* Remove a margem padrão dentro da linha para não acumular */
+.form-row .form-group {
+    margin-bottom: 0; 
+}
+
+/* O campo maior (ocupa 70% do espaço) */
+.col-70 {
+    flex: 7;
+}
+
+/* O campo menor (ocupa 30% do espaço) */
+.col-30 {
+    flex: 3;
+}
+
+/* Ajuste no padding do formulário para caber melhor na tela 2.2 */
+.cadastro-card {
+    padding: 35px 40px; /* Diminui um pouco o espaço interno pra não esticar demais */
+}
+
+@media (max-width: 600px) {
+    /* No celular, quebra as colunas e coloca uma embaixo da outra */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-row .form-group {
+        margin-bottom: 15px;
+    }
+}
+/* ==========================================================================
+   TELA DE CADASTRO 2.3 (Confirmação de E-mail)
+   ========================================================================== */
+
+/* Ajustes no card branco para ficar mais minimalista como no design */
+.card-confirmacao {
+    padding: 60px 50px; /* Aumenta o espaço interno (padding) para não ficar vazio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-confirmacao h2 {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* Texto de reenviar código */
+.reenviar-txt {
+    font-size: 10px;
+    color: var(--text-gray);
+    margin-top: 5px;
+    margin-bottom: 30px; /* Dá espaço para o botão final */
+}
+
+.reenviar-txt a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVIDADE MOBILE (iOS e Android) ===== */
+@media (max-width: 768px){
+  *{box-sizing:border-box;}
+  body{overflow-x:hidden;}
+  .container,.content,.wrapper,.main{width:100%!important;max-width:100%!important;padding-left:12px!important;padding-right:12px!important;}
+  header,nav,section,footer{width:100%!important;}
+  img{max-width:100%!important;height:auto!important;}
+  .grid,.cards,.card-container,.products,.pets,.pet-grid,.services{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:16px!important;
+  }
+  table{display:block;overflow-x:auto;}
+  input,select,textarea,button{
+      width:100%!important;
+      max-width:100%!important;
+      font-size:16px!important;
+  }
+  h1{font-size:2rem!important;}
+  h2{font-size:1.6rem!important;}
+  h3{font-size:1.3rem!important;}
+}
+
+@media (max-width:480px){
+  body{font-size:14px!important;}
+  h1{font-size:1.7rem!important;}
+  h2{font-size:1.4rem!important;}
+  h3{font-size:1.1rem!important;}
+}

@@ -1,0 +1,368 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#fff;
+}
+
+.top-bar{
+background:#1D6B57;
+color:#fff;
+text-align:center;
+padding:10px;
+font-size:14px;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+border-bottom:1px solid #ddd;
+}
+
+.logo{
+font-size:34px;
+font-weight:700;
+color:#f29f05;
+}
+
+.logo span{
+color:#e27d00;
+}
+
+nav{
+display:flex;
+gap:40px;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+nav a.active{
+color:#1D6B57;
+border-bottom:2px solid #1D6B57;
+}
+
+.btn-login{
+background:#1D6B57;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.banner{
+display:flex;
+align-items:center;
+justify-content:center;
+margin:50px auto;
+width:90%;
+gap:20px;
+}
+
+.banner-content{
+width:100%;
+max-width:1000px;
+background:#006d92;
+border-radius:20px;
+padding:30px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.banner-text h2{
+font-size:42px;
+color:#fff;
+line-height:1.1;
+}
+
+.banner-image img{
+height:250px;
+}
+
+.banner-button button{
+padding:20px 35px;
+border:none;
+border-radius:20px;
+background:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+.arrow{
+background:#1D6B57;
+color:white;
+border:none;
+width:45px;
+height:45px;
+border-radius:50%;
+cursor:pointer;
+}
+
+.dots{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:40px;
+}
+
+.dots span{
+width:12px;
+height:12px;
+background:#ccc;
+border-radius:50%;
+}
+
+.dots .active{
+background:#1D6B57;
+}
+
+.section{
+padding:70px 80px;
+}
+
+.section h2{
+font-size:42px;
+margin-bottom:40px;
+}
+
+.pets-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.pet-card{
+cursor:pointer;
+transition:.4s;
+}
+
+.pet-card img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.pet-card:hover{
+transform:translateY(-10px);
+}
+
+.pet-card h3{
+font-size:18px;
+margin-top:10px;
+}
+
+.pet-card p{
+color:#666;
+}
+
+.pet-card span{
+font-weight:700;
+}
+
+.ong-search{
+background:#f7f4f4;
+width:90%;
+margin:auto;
+padding:60px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.ong-search h2{
+font-size:55px;
+line-height:1.1;
+}
+
+.ong-search p{
+margin-top:15px;
+color:#666;
+}
+
+.right{
+width:40%;
+}
+
+.right input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:30px;
+background:#eef3ef;
+margin-bottom:15px;
+}
+
+.right button{
+width:100%;
+padding:15px;
+background:#1D6B57;
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+}
+
+.ongs{
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.ong{
+width:140px;
+height:140px;
+border-radius:50%;
+background:#ddd;
+transition:.4s;
+}
+
+.ong:hover{
+transform:scale(1.1);
+}
+
+.large .pet-card{
+height:350px;
+background:#ddd;
+border-radius:10px;
+}
+
+.pagination{
+display:flex;
+justify-content:center;
+gap:10px;
+margin:80px;
+}
+
+.pagination button{
+width:40px;
+height:40px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+}
+
+.current{
+background:#1D6B57;
+color:white;
+}
+
+@media(max-width:900px){
+
+header{
+padding:20px;
+flex-direction:column;
+gap:20px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.banner-content{
+flex-direction:column;
+text-align:center;
+}
+
+.banner-image img{
+height:180px;
+}
+
+.pets-grid{
+grid-template-columns:1fr;
+}
+
+.ong-search{
+flex-direction:column;
+gap:30px;
+}
+
+.right{
+width:100%;
+}
+
+.ongs{
+flex-wrap:wrap;
+}
+
+.section{
+padding:40px 20px;
+}
+
+}
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #006485; /* Alinhado com a paleta do PetBuddy */
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Garante que fique acima de carrosséis e do menu */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efeito de passar o mouse */
+.whatsapp-btn:hover {
+    background-color: #25d366; /* Muda para o verde clássico do WhatsApp no hover */
+    transform: scale(1.1);
+}
+
+/* Animação suave de pulso para chamar atenção sutilmente */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 100, 133, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 100, 133, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 100, 133, 0); }
+}
+
+.whatsapp-btn {
+    animation: pulse 2s infinite;
+}
+
+/* ===== RESPONSIVIDADE MOBILE (iOS e Android) ===== */
+@media (max-width: 768px){
+  *{box-sizing:border-box;}
+  body{overflow-x:hidden;}
+  .container,.content,.wrapper,.main{width:100%!important;max-width:100%!important;padding-left:12px!important;padding-right:12px!important;}
+  header,nav,section,footer{width:100%!important;}
+  img{max-width:100%!important;height:auto!important;}
+  .grid,.cards,.card-container,.products,.pets,.pet-grid,.services{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:16px!important;
+  }
+  table{display:block;overflow-x:auto;}
+  input,select,textarea,button{
+      width:100%!important;
+      max-width:100%!important;
+      font-size:16px!important;
+  }
+  h1{font-size:2rem!important;}
+  h2{font-size:1.6rem!important;}
+  h3{font-size:1.3rem!important;}
+}
+
+@media (max-width:480px){
+  body{font-size:14px!important;}
+  h1{font-size:1.7rem!important;}
+  h2{font-size:1.4rem!important;}
+  h3{font-size:1.1rem!important;}
+}

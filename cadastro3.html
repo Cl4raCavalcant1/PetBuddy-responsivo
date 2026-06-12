@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetBuddy | Confirme seu E-mail</title>
+  <link rel="stylesheet" href="./stylecadastro.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--bg:#ffffff;--text:#222;--card:#f5f5f5}
+body.dark{--bg:#121212;--text:#f1f1f1;--card:#1e1e1e}
+body{background:var(--bg)!important;color:var(--text)!important;transition:.3s}
+.card,.pet-card,.produto,.plano{background:var(--card)!important;transition:.3s ease}
+.plano:hover,.card:hover,.pet-card:hover,.produto:hover{transform:translateY(-6px)}
+.dark-toggle{position:fixed;top:15px;right:15px;z-index:9999;padding:10px 14px;border-radius:20px;cursor:pointer}
+.hero-simple{padding:60px 20px;text-align:center}
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="container topbar-content">
+        <p>A Saúde do seu Animalzinho é na PetMed</p>
+        <a href="#" class="saiba-mais">Saber mais</a>
+      </div>
+    </div>
+  
+    <div class="navbar">
+      <div class="container nav-container">
+        <a href="../home/index.html" class="logo-link">
+          <img src="../assets/Logo Principal.png" alt="Logo PetBuddy" class="logo">
+        </a>
+  
+        <nav class="menu">
+          <a href="../home/index.html">Início</a>
+          <a href="#">Promoções</a>
+          <a href="../petmed/../petmed/petmed.html">PetMed</a>
+          <a href="../petlar/homepet.html">PetLar</a>
+          <a href="#">Contato</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="cadastro-wrapper container">
+    <div class="cadastro-box">
+        
+        <div class="cadastro-img-area">
+            <img src="../assets/PetCadastro.png" alt="Cachorro PetBuddy" class="pet-cadastro-img">
+        </div>
+
+        <div class="cadastro-form-area">
+            
+            <div class="cadastro-card card-confirmacao">
+                <h2>Confirme o seu E-mail</h2>
+                
+                <form class="form-confirmacao">
+                    <div class="form-group">
+                        <label>Digite o Código que foi Enviado para o seu E-mail</label>
+                        <input type="text" id="codigo" placeholder="Insira o Código aqui." required>
+                    </div>
+
+                    <p class="reenviar-txt">
+                        Não recebeu? <a href="#" onclick="reenviarCodigo()">Reenviar Código para E-mail</a>
+                    </p>
+
+                    <div class="btn-create-container">
+                        <button type="button" class="btn-create" onclick="confirmarCadastro()">Finalizar Cadastro</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+  <script>
+      // Simula envio de código (em produção, isso viria do backend)
+      function reenviarCodigo() {
+          alert('Código reenviado para o seu e-mail! (Simulação)');
+      }
+      
+      function confirmarCadastro() {
+          const codigo = document.getElementById('codigo').value;
+          
+          if(!codigo) {
+              alert('Por favor, digite o código de verificação!');
+              return;
+          }
+          
+          // Em produção, validaria o código com o backend
+          alert('Cadastro concluído com sucesso! 🎉');
+          window.location.href = '../home/logado.html';
+      }
+  </script>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+  <script>
+      function toggleDarkMode(){
+          document.body.classList.toggle('dark');
+          localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      }
+      if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+  </script>
+</body>
+</html>

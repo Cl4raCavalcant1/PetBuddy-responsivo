@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>PetLar - Adote com amor | PetBuddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET E VARIÁVEIS ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --text: #222;
+      --card: #f5f5f5;
+      --primary: #00b061;
+      --primary-hover: #165a2f;
+      --border: #eaeaea;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #f1f1f1;
+      --card: #1e1e1e;
+      --border: #2c2c2c;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== TOPBAR PADRÃO (igual PetMed) ===== */
+    .top-bar {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 15px 0;
+      margin-bottom: 40px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      height: 45px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .menu a.active,
+    .menu a:hover {
+      color: var(--primary);
+    }
+
+    .btn-login {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-login:hover {
+      background: var(--primary-hover);
+    }
+
+    /* ===== SEÇÕES DE PETS ===== */
+    .pets-section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .pets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .pet-card {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .pet-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .pet-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .pet-card h3 {
+      font-size: 20px;
+      margin: 15px 15px 5px;
+    }
+
+    .pet-card p {
+      font-size: 14px;
+      color: #666;
+      margin: 0 15px 5px;
+    }
+
+    body.dark .pet-card p {
+      color: #aaa;
+    }
+
+    .pet-card span {
+      display: block;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0 15px 15px;
+    }
+
+    .btn-cadastrar {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn-cadastrar a {
+      background: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      transition: 0.2s;
+    }
+
+    .btn-cadastrar a:hover {
+      background: var(--primary-hover);
+    }
+
+    /* ===== BUSCA ONG ===== */
+    .ong-search {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(247,147,30,0.1), rgba(255,216,155,0.2));
+      padding: 40px;
+      border-radius: 24px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .ong-search .left h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .ong-search .left p {
+      color: #666;
+    }
+
+    body.dark .ong-search .left p {
+      color: #aaa;
+    }
+
+    .ong-search .right {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .ong-search input {
+      padding: 14px 20px;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      width: 260px;
+      font-size: 14px;
+    }
+
+    .ong-search button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .ong-search button:hover {
+      background: var(--primary-hover);
+    }
+
+    /* ===== ONGs ASSOCIADAS ===== */
+    .ongs-section {
+      margin-bottom: 60px;
+    }
+
+    .ongs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .ong {
+      width: 100px;
+      height: 100px;
+      background: #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ong:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    /* ===== PAGINAÇÃO ===== */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 50px 0;
+    }
+
+    .pagination button {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .pagination button.current {
+      background: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    .pagination button:hover:not(.current) {
+      background: var(--card);
+    }
+
+    /* ===== RODAPÉ ===== */
+    footer {
+      background: var(--primary);
+      padding: 40px 20px 30px;
+      margin-top: 60px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 35px;
+      margin-bottom: 30px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-logo {
+      text-align: center;
+    }
+
+    .footer-logo img {
+      height: 45px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ===== DARK MODE TOGGLE ===== */
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 40px;
+      padding: 12px 16px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: 0.2s;
+    }
+
+    .dark-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== RESPONSIVIDADE ===== */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+      .ong-search {
+        flex-direction: column;
+        text-align: center;
+      }
+      .ong-search .right {
+        justify-content: center;
+      }
+      .ongs {
+        gap: 20px;
+      }
+      .ong {
+        width: 70px;
+        height: 70px;
+      }
+      h2 {
+        font-size: 24px;
+      }
+      .pets-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ong-search input {
+        width: 100%;
+      }
+      .ong {
+        width: 60px;
+        height: 60px;
+      }
+      .pagination button {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    .whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #006485; /* Alinhado com a paleta do PetBuddy */
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Garante que fique acima de carrosséis e do menu */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efeito de passar o mouse */
+.whatsapp-btn:hover {
+    background-color: #25d366; /* Muda para o verde clássico do WhatsApp no hover */
+    transform: scale(1.1);
+}
+
+/* Animação suave de pulso para chamar atenção sutilmente */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 100, 133, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 100, 133, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 100, 133, 0); }
+}
+
+.whatsapp-btn {
+    animation: pulse 2s infinite;
+}
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  A Saúde do seu Animalzinho é na PetMed
+</div>
+
+<header>
+  <div class="navbar">
+    <div class="container nav-container">
+      <a href="../home/index.html" class="logo-link">
+        <img src="../assets/Logo Principal.png" alt="Logo PetBuddy" class="logo" onerror="this.src='https://placehold.co/120x45?text=PetBuddy'">
+      </a>
+      <nav class="menu">
+        <a href="../home/index.html">Início</a>
+        <a href="../petmed/../petmed/petmed.html">PetMed</a>
+        <a href="homepet.html" class="active">PetLar</a>
+      </nav>
+      <button class="btn-login" onclick="window.location.href='../login/login.html'">
+        Entrar/Cadastrar
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Pets postados recentemente -->
+  <section class="pets-section">
+    <h2>Pet's Postados Recentes</h2>
+    <div class="pets-grid">
+      <div class="pet-card"><img src="../assets/petsl1.jpg" alt="Petros" onerror="this.src='https://placehold.co/300x220?text=Petros'"><h3>Petros</h3><p>Pitbull</p><span>8 Meses</span></div>
+      <div class="pet-card"><img src="../assets/petsl2.jpg" alt="Luna" onerror="this.src='https://placehold.co/300x220?text=Luna'"><h3>Luna</h3><p>SRD</p><span>2 Anos</span></div>
+      <div class="pet-card"><img src="../assets/petsl3.jpg" alt="Thor" onerror="this.src='https://placehold.co/300x220?text=Thor'"><h3>Thor</h3><p>SRD</p><span>1 Ano</span></div>
+      <div class="pet-card"><img src="../assets/petsl4.jpg" alt="Thor" onerror="this.src='https://placehold.co/300x220?text=Thor'"><h3>Matias</h3><p>SRD</p><span>5 Anos</span></div>
+    </div>
+    <div class="btn-cadastrar">
+      <a href="cadastro-adocao.html">Cadastrar para Adoção</a>
+    </div>
+  </section>
+
+  <!-- Busca ONG -->
+  <section class="ong-search">
+    <div class="left">
+      <h2>Encontre a ONG<br>mais próxima</h2>
+      <p>Digite sua cidade para encontrar a ONG mais próxima de você.</p>
+    </div>
+    <div class="right">
+      <input type="text" id="cidadeBusca" placeholder="Digite sua cidade">
+      <button id="buscarOngBtn">Buscar</button>
+    </div>
+  </section>
+
+  <!-- ONGs Associadas -->
+  <section class="ongs-section">
+    <h2>Ongs Associadas</h2>
+    <div class="ongs" id="ongsList">
+      <div class="ong" style="background-image: url('../assets/ong1.png');" onclick="alert('ONG Amigos dos Animais')"></div>
+      <div class="ong" style="background-image: url('../assets/ong2.png');" onclick="alert('ONG Patas Felizes')"></div>
+      <div class="ong" style="background-image: url('../assets/ong3.png');" onclick="alert('ONG Resgate Animal')"></div>
+      <div class="ong" style="background-image: url('../assets/ong4.png');" onclick="alert('ONG Vida de Pet')"></div>
+      <div class="ong" style="background-image: url('../assets/ong5.png');" onclick="alert('ONG Amor de Bicho')"></div>
+    </div>
+  </section>
+
+  <!-- Pets mais vistos -->
+  <section class="pets-section">
+    <h2>Pet's Mais Vistos</h2>
+    <div class="pets-grid">
+      <div class="pet-card"><img src="../assets/PetLar1.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Max</h3><p>Vira-lata</p><span>3 Anos</span></div>
+      <div class="pet-card"><img src="../assets/GatoAD1.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Bella</h3><p>Frajola</p><span>2 Anos</span></div>
+      <div class="pet-card"><img src="../assets/PetLar2.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Luke</h3><p>SRD</p><span>2 Anos</span></div>
+      <div class="pet-card"><img src="../assets/PetLar3.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Nina</h3><p>SRD</p><span>1 Ano e 6 Meses</span></div>
+      <div class="pet-card"><img src="../assets/GatoAD2.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Bob</h3><p>SRF</p><span>4 Anos</span></div>
+      <div class="pet-card"><img src="../assets/PetLar4.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Mel</h3><p>SRD</p><span>3 Anos</span></div>
+      <div class="pet-card"><img src="../assets/PetLar5.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Mia</h3><p>Pitbull</p><span>3 Meses</span></div>
+      <div class="pet-card"><img src="../assets/GatoAD3.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Mancha</h3><p>SRD</p><span>3 Anos</span></div>
+      <div class="pet-card"><img src="../assets/GatoAD4.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Teobaldo</h3><p>SRD</p><span>1 Ano</span></div>
+      <div class="pet-card"><img src="../assets/PetLar6.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Felipo</h3><p>SRD</p><span>4 Anos</span></div>
+      <div class="pet-card"><img src="../assets/GatoAD6.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Filicia</h3><p>SRD</p><span>1 Ano</span></div>
+      <div class="pet-card"><img src="../assets/PetLar7.jpg" onerror="this.src='https://placehold.co/300x220'"><h3>Bob</h3><p>Salsicha</p><span>1 Ano</span></div>
+      
+    </div>
+  </section>
+
+  <!-- Paginação (visual) -->
+  <div class="pagination">
+    <button class="current">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-links">
+    <a href="#">Contato</a>
+    <a href="#">Sobre Nós</a>
+    <a href="#">PetMed</a>
+    <a href="#">PetLar</a>
+    <a href="#">Clínicas Parceiras</a>
+  </div>
+  <div class="footer-logo">
+    <img src="../assets/Logo Principal.png" alt="PetBuddy" onerror="this.src='https://placehold.co/120x45?text=PetBuddy'">
+  </div>
+</footer>
+
+<button class="dark-toggle" id="darkModeToggle">🌙</button>
+
+<script>
+  // Busca de ONG
+  const buscarBtn = document.getElementById('buscarOngBtn');
+  const cidadeInput = document.getElementById('cidadeBusca');
+  if (buscarBtn) {
+    buscarBtn.addEventListener('click', () => {
+      const cidade = cidadeInput.value.trim();
+      if (cidade === "") {
+        alert("Digite o nome da sua cidade");
+      } else {
+        alert(`🔍 Buscando ONGs próximas em ${cidade}...`);
+      }
+    });
+  }
+
+  // Dark mode
+  const toggleDark = () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  };
+  const darkBtn = document.getElementById('darkModeToggle');
+  if (darkBtn) darkBtn.addEventListener('click', toggleDark);
+  if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+
+  // Fallback para imagens de ONGs que não existirem
+  document.querySelectorAll('.ong').forEach(ong => {
+    ong.addEventListener('error', function() {
+      this.style.background = '#ddd';
+      this.style.backgroundImage = 'none';
+    });
+  });
+</script>
+<!-- Botão Flutuante do WhatsApp -->
+<a href="https://wa.me/5581995782207?text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+os+planos+da+PetBuddy." 
+   class="whatsapp-btn" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Fale conosco pelo WhatsApp">
+    <!-- Ícone SVG do WhatsApp (dispensa uso de fontes externas como FontAwesome) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="32" height="32" fill="currentColor">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+</a>
+</body>
+</html>
